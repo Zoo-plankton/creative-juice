@@ -76,7 +76,7 @@ function rotateGear(wScroll) {
   let activeY = (getPosition(document.querySelector('.pictures')) + (vh*.4))
 
   if (wScroll > activeY) {
-    document.querySelector('.gear-one').style.transform = 'translateX(.85vw) translateY(24.8vmin) rotateZ(' + (((wScroll*.825)- activeY)/6) + 'deg)';
+    document.querySelector('.gear-one').style.transform = 'translateX(.85vw) translateY(24.8vmin) rotateZ(' + (((wScroll*.825)- activeY)/5.87) + 'deg)';
   }
 }
 
@@ -104,13 +104,19 @@ function attachGear(wScroll) {
     document.querySelector('.gear-one').style.transition = '0s';
     document.querySelector('.gear-group').style.marginTop = 150 - (wScroll - activeY)/10.34 + 'vh';
     document.querySelector('.gear-shadow').style.transform = 'translateY(' + (wScroll - activeY)/1.25+ 'px)';
+    document.querySelector('.final-bg').style.height = '0px';
+    document.querySelector('.final-bg').style.width = '0px';
+
   } else if (wScroll < activeY) {
     document.querySelector('.gear-shadow').style.transform = 'translateY(0px)';
     document.querySelector('.gear-one').style.transform = 'translateX(.85vw) translateY(24.8vmin) rotate(0deg)';
     document.querySelector('.gear-one').style.transition = '.2s';
+    document.querySelector('.final-bg').style.height = '0px';
+    document.querySelector('.final-bg').style.width = '0px';
   } else {
     document.querySelector('.gear-group').style.marginTop = '.19922vh';
     rotateAll(wScroll - activeY);
+    thatsAllFolks(wScroll - (activeY*1.4));
   }
 }
 
@@ -120,6 +126,11 @@ function rotateAll(scroll) {
   document.querySelector('.g3').style.transform = 'translate(-.2vw, .5vh) rotate(-' + 11 + (scroll/10.3) + 'deg)';
   document.querySelector('.g4').style.transform = 'translate(1.3vw, 20.3vh) rotate(' + 14 + (scroll/6.8) + 'deg)';
   document.querySelector('.g5').style.transform = 'translate(-2.2vw, 31.2vh) rotate(-' + 19 + (scroll/6.8) + 'deg)';
+}
+
+function thatsAllFolks(scroll) {
+  document.querySelector('.final-bg').style.height = scroll/2 + 'px';
+  document.querySelector('.final-bg').style.width = scroll/2 + 'px';
 }
 
 function colorBackground(wScroll) {
@@ -149,5 +160,6 @@ window.addEventListener('scroll', function(e) {
         ticking = false;
     });
     ticking = true;
+    console.log(window.innerHeight + ' x ' + window.innerWidth);
   }
 });

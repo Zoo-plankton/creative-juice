@@ -156,13 +156,13 @@ body {
 .text-bg p:nth-of-type(1) {
   text-align: left;
   transform: translateY(-6.5vh);
-  z-index: 1;
+  z-index: 2;
 }
 
 .text-bg p:nth-of-type(2) {
   text-align: center;
   transform: translateY(9.2vh);
-  z-index: 1;
+  z-index: 2;
 }
 
 .text-bg p:nth-of-type(3) {
@@ -336,4 +336,19 @@ body {
   width:7.5vw;
   transform: translate(-2.2vw, 31.9vh) rotate(-19deg);
 
+}
+
+.final-bg {
+  background: red;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  margin: auto;
+  height:0px;
+  width:0px;
+  border-radius: 50%;
+  position:fixed;
+  background-attachment: fixed;
+  z-index:0;
 }
