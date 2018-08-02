@@ -116,7 +116,7 @@ function attachGear(wScroll) {
   } else {
     document.querySelector('.gear-group').style.marginTop = '.19922vh';
     rotateAll(wScroll - activeY);
-    thatsAllFolks(wScroll - (activeY*1.4));
+    thatsAllFolks(wScroll - (activeY*1.56));
   }
 }
 
